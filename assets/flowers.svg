@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#fae8da"/><stop offset="1" stop-color="#e7c8bf"/></radialGradient>
+    <filter id="grain"><feTurbulence baseFrequency=".65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".055"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+    <g id="rose"><g fill="#c8858e"><ellipse cy="-21" rx="22" ry="32"/><ellipse cy="-21" rx="22" ry="32" transform="rotate(72)"/><ellipse cy="-21" rx="22" ry="32" transform="rotate(144)"/><ellipse cy="-21" rx="22" ry="32" transform="rotate(216)"/><ellipse cy="-21" rx="22" ry="32" transform="rotate(288)"/></g><circle r="28" fill="#dea5a5"/><path d="M-18 8q-8-31 20-26t18 30q-7 13-22 4t-4-20" fill="none" stroke="#b77882" stroke-width="3"/><circle cx="0" cy="1" r="8" fill="#c18a8d"/></g>
+    <g id="daisy"><g fill="#faf0d7"><ellipse cy="-14" rx="9" ry="20"/><ellipse cy="-14" rx="9" ry="20" transform="rotate(60)"/><ellipse cy="-14" rx="9" ry="20" transform="rotate(120)"/><ellipse cy="-14" rx="9" ry="20" transform="rotate(180)"/><ellipse cy="-14" rx="9" ry="20" transform="rotate(240)"/><ellipse cy="-14" rx="9" ry="20" transform="rotate(300)"/></g><circle r="10" fill="#cfaa63"/></g>
+  </defs>
+  <g filter="url(#grain)">
+    <path fill="url(#bg)" d="M0 0h600v700H0z"/><ellipse cx="309" cy="619" rx="153" ry="28" fill="#be93841a"/>
+    <path d="M108 318l75-83 116 103 128-108 76 89-117 303H253z" fill="#f6e6cf"/><path d="M108 318l192 183-47 121z" fill="#e7cfb4"/><path d="M503 319L300 501l86 121z" fill="#f3dec3"/>
+    <g fill="none" stroke="#8e9d79" stroke-width="7" stroke-linecap="round"><path d="M304 527L179 253m141 274 75-284m-84 285-18-322m17 328 145-172m-150 165L137 363"/></g>
+    <g fill="#8a9d7e"><ellipse cx="226" cy="352" rx="20" ry="53" transform="rotate(-41 226 352)"/><ellipse cx="358" cy="357" rx="21" ry="51" transform="rotate(30 358 357)"/><ellipse cx="410" cy="359" rx="18" ry="46" transform="rotate(57 410 359)"/><ellipse cx="273" cy="275" rx="18" ry="46" transform="rotate(-20 273 275)"/></g>
+    <g fill="#a7b297"><ellipse cx="157" cy="314" rx="18" ry="43" transform="rotate(-47 157 314)"/><ellipse cx="346" cy="266" rx="18" ry="43" transform="rotate(32 346 266)"/><ellipse cx="437" cy="286" rx="17" ry="44" transform="rotate(35 437 286)"/></g>
+    <use href="#rose" transform="translate(189 250) rotate(-12)"/><use href="#rose" transform="translate(299 218) rotate(13) scale(1.12)"/><use href="#rose" transform="translate(389 273) rotate(31) scale(.94)"/><use href="#rose" transform="translate(280 342) rotate(12) scale(1.05)"/>
+    <use href="#daisy" transform="translate(141 360) scale(.9)"/><use href="#daisy" transform="translate(451 359)"/><use href="#daisy" transform="translate(251 179) scale(.6)"/><use href="#daisy" transform="translate(368 177) scale(.7)"/><use href="#daisy" transform="translate(209 402) scale(.75)"/>
+    <path d="M272 503q40 17 79 0l-3 19q-41 12-73-1z" fill="#b87984"/><path d="M304 512q-80-75-67-8 21 38 67 8m6 0q83-73 69-3-26 37-69 3" fill="none" stroke="#be8690" stroke-width="11"/><path d="M301 522l-15 66m36-65 27 61" stroke="#be8690" stroke-width="12"/>
+    <g fill="#c9949c" opacity=".45"><ellipse cx="97" cy="179" rx="7" ry="12" transform="rotate(-28 97 179)"/><ellipse cx="489" cy="512" rx="7" ry="11" transform="rotate(37 489 512)"/></g>
+  </g>
+</svg>

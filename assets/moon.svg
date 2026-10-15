@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#7e829d"/><stop offset=".65" stop-color="#ae9eae"/><stop offset="1" stop-color="#d7b6b5"/></linearGradient>
+    <filter id="grain"><feTurbulence baseFrequency=".7" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".045"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+    <g id="star" stroke="#eee3cc" stroke-linecap="round"><path d="M-4 0h8M0-4v8" stroke-width="1.5"/></g>
+    <g id="window"><path d="M0 0h32v46H0z" fill="#f1d3a1"/><path d="M16 0v46M0 24h32" stroke="#a89790" stroke-width="3"/></g>
+  </defs>
+  <g filter="url(#grain)">
+    <path fill="url(#sky)" d="M0 0h600v700H0z"/>
+    <path d="M373 104a58 58 0 1 0 70 79 61 61 0 0 1-70-79" fill="#f3e6c8"/>
+    <g opacity=".85"><use href="#star" x="91" y="101"/><use href="#star" x="251" y="162"/><use href="#star" x="471" y="78"/><use href="#star" x="531" y="244"/><use href="#star" x="186" y="297"/><use href="#star" x="71" y="282"/></g>
+    <g fill="#eee3cd" opacity=".65"><circle cx="160" cy="171" r="2"/><circle cx="291" cy="73" r="2"/><circle cx="447" cy="279" r="2"/><circle cx="333" cy="269" r="2"/><circle cx="540" cy="144" r="2"/><circle cx="106" cy="206" r="2"/><circle cx="254" cy="329" r="2"/></g>
+    <path d="M-40 374q155-86 301-13t381-31v370H0" fill="#9b98a1"/>
+    <path d="M0 507q194-85 325-13t275-34v240H0" fill="#858b8a"/>
+    <path d="M43 482l104-100 103 100v163H43z" fill="#c5b3aa"/><path d="M26 488l121-119 122 119" fill="none" stroke="#8d7a81" stroke-width="18" stroke-linejoin="round"/>
+    <path d="M184 401v-47h27v73" fill="#a18b8b"/><use href="#window" x="83" y="497"/><use href="#window" x="177" y="497"/><path d="M125 569q22-22 44 0v76h-44z" fill="#8f817d"/>
+    <path d="M329 465l94-84 95 84v180H329z" fill="#d0bab0"/><path d="M315 471l108-103 111 103" fill="none" stroke="#8e7c85" stroke-width="17" stroke-linejoin="round"/><use href="#window" x="356" y="487"/><use href="#window" x="456" y="487"/><path d="M405 568h37v77h-37z" fill="#9d8e84"/>
+    <path d="M0 640q126-29 278 2t322-9v67H0" fill="#9f9c8c"/><path d="M135 645h25l-21 55H88m328-55h19l62 55h-53" fill="#c4b5a0"/>
+    <g fill="#777f81"><ellipse cx="282" cy="563" rx="28" ry="65"/><ellipse cx="550" cy="590" rx="31" ry="67"/><ellipse cx="17" cy="581" rx="21" ry="62"/></g>
+  </g>
+</svg>

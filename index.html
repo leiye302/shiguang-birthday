@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff5ee" />
+    <meta name="description" content="把喜欢写进每一天，把我们的故事慢慢收藏。送给最特别的你，生日快乐。" />
+    <title>拾光集 · 送给最特别的你</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/flower.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./content.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <div class="petals" aria-hidden="true" id="petals"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#home" aria-label="拾光集，回到首页">
+          <img src="./assets/flower.svg" width="27" height="27" alt="" />
+          <span data-site-title>拾光集</span><span class="brand-divider"></span><small>OUR LITTLE STORY</small>
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="#home" class="is-active" aria-current="location"><span aria-hidden="true">⌂</span> 首页</a>
+          <a href="#story"><span aria-hidden="true">◷</span> 时光</a>
+          <a href="#album"><span aria-hidden="true">▧</span> 相册</a>
+          <a href="#notes"><span aria-hidden="true">✎</span> 小记</a>
+          <a href="#letter"><span aria-hidden="true">♡</span> 给你的信</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero section-anchor" id="home" aria-labelledby="hero-title">
+        <div class="hero-scene">
+          <div class="hero-note" aria-hidden="true">for my favorite person <span>♡</span></div>
+          <div class="little-star star-one" aria-hidden="true">✧</div>
+          <div class="little-star star-two" aria-hidden="true">✧</div>
+          <figure class="floating-photo photo-left" aria-label="蓝天插画占位">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="./assets/sky.svg" alt="柔软的云、蓝天和盛开的花" width="600" height="700" />
+            <figcaption>想把所有晴天，都送给你。</figcaption>
+            <span class="photo-heart" aria-hidden="true">♡</span>
+          </figure>
+
+          <div class="birthday-card">
+            <div class="card-corner corner-top" aria-hidden="true"></div>
+            <div class="card-corner corner-bottom" aria-hidden="true"></div>
+            <span class="eyebrow"><span aria-hidden="true">✿</span> 一份只属于你的生日礼物</span>
+            <p class="english-title">Little moments, endless love.</p>
+            <h1 id="hero-title" data-site-title>拾光集</h1>
+            <p class="hero-subtitle">把喜欢，写进每一天<span class="blinking-heart" aria-hidden="true">♥</span></p>
+            <div class="tiny-divider" aria-hidden="true"><span></span> ✧ <span></span></div>
+            <p class="birthday-label" id="birthday-label">在这个特别的日子</p>
+            <p class="birthday-greeting" id="birthday-greeting">生日快乐，<span data-recipient>亲爱的你</span></p>
+            <p class="hero-description">那些平凡又闪亮的瞬间，<br class="mobile-break" />因为有你，都值得被收藏。</p>
+            <a class="primary-button" href="#story">翻开我们的故事 <span aria-hidden="true">↗</span></a>
+            <p class="anniversary" id="anniversary">我们的故事，还很长很长 <span aria-hidden="true">♡</span></p>
+          </div>
+
+          <figure class="floating-photo photo-right" aria-label="落日海边插画占位">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="./assets/sea.svg" alt="粉色落日下安静的海岸" width="600" height="700" />
+            <figcaption>下一场日落，也要一起看。</figcaption>
+          </figure>
+          <div class="birthday-ticket" aria-label="生日日期">
+            <span>你的专属节日</span><strong id="birthday-date">10.16</strong><small>HAPPY BIRTHDAY</small>
+          </div>
+          <div class="hero-doodle" aria-hidden="true">好多好多的喜欢<br /><span>都藏在这里啦 ↗</span></div>
+        </div>
+        <a href="#story" class="scroll-hint"><span>往下翻，都是关于你</span><span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="story-section section-anchor" id="story" aria-labelledby="story-title">
+        <div class="section-heading">
+          <span class="section-kicker">CHAPTER 01 · OUR DAYS</span>
+          <h2 id="story-title">把日子，串成故事<span aria-hidden="true">✿</span></h2>
+          <p>时间会往前走，但这些瞬间，我想好好留住。</p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+        <div class="timeline-end"><span aria-hidden="true">♡</span><p>未完待续，下一页还是我们。</p></div>
+      </section>
+
+      <section class="album-section section-anchor" id="album" aria-labelledby="album-title">
+        <div class="section-heading">
+          <span class="section-kicker">CHAPTER 02 · LITTLE MOMENTS</span>
+          <h2 id="album-title">我们的相册本<span class="heading-doodle" aria-hidden="true">♡</span></h2>
+          <p>把心动定格，把普通的一天变成纪念。</p>
+        </div>
+        <div class="album-toolbar">
+          <p><span class="tiny-dot" aria-hidden="true"></span> <span id="photo-count">6</span> 个等待被填满的瞬间</p>
+          <span>轻轻点开，慢慢看 <span aria-hidden="true">↙</span></span>
+        </div>
+        <div class="photo-grid" id="photo-grid"></div>
+        <p class="placeholder-note">先用小插画占个位置，等我们的照片住进来。</p>
+      </section>
+
+      <section class="notes-section section-anchor" id="notes" aria-labelledby="notes-title">
+        <div class="section-heading">
+          <span class="section-kicker">CHAPTER 03 · NOTES TO US</span>
+          <h2 id="notes-title">小事，也想和你记下来</h2>
+          <p>一些碎碎念，一些小约定，还有好多“下次一起”。</p>
+        </div>
+        <div class="cork-board">
+          <span class="board-pin pin-left" aria-hidden="true"></span><span class="board-pin pin-right" aria-hidden="true"></span>
+          <div class="notes-grid" id="notes-grid"></div>
+        </div>
+        <p class="notes-tip">点一下小心愿，把一起完成的事打个勾 <span aria-hidden="true">✓</span></p>
+      </section>
+
+      <section class="letter-section section-anchor" id="letter" aria-labelledby="letter-title">
+        <div class="section-heading">
+          <span class="section-kicker">ONE MORE THING…</span>
+          <h2 id="letter-title">还有一些话，想悄悄告诉你</h2>
+          <p>在今天，也在以后每一个有你的日子。</p>
+        </div>
+        <button class="envelope" id="open-letter" type="button" aria-haspopup="dialog" aria-controls="letter-dialog">
+          <span class="letter-peek">To: <span data-recipient>亲爱的你</span><span class="peek-flower" aria-hidden="true">✿</span></span>
+          <span class="envelope-back" aria-hidden="true"></span>
+          <span class="envelope-front" aria-hidden="true"></span>
+          <span class="wax-seal" aria-hidden="true">♡</span>
+          <span class="envelope-caption">有一封给你的信，点击拆开</span>
+        </button>
+        <p class="letter-footnote">爱意有回声，来日且漫长。</p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><img src="./assets/flower.svg" width="23" height="23" alt="" /><p>把喜欢藏进时光里，把你放在心上。</p><small>MADE WITH LOVE · <span id="footer-year">2026</span></small></footer>
+
+    <button class="music-button" id="music-toggle" type="button" aria-label="播放轻柔音乐" aria-pressed="false"><span class="music-disc" aria-hidden="true">♫</span><span class="music-label">听一点温柔</span></button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <dialog class="photo-dialog" id="photo-dialog" aria-labelledby="photo-dialog-title">
+      <button class="dialog-close" type="button" data-close="photo-dialog" aria-label="关闭照片">×</button>
+      <div class="lightbox-image"><img id="lightbox-image" alt="" /></div>
+      <div class="lightbox-caption"><div><h3 id="photo-dialog-title"></h3><p id="photo-dialog-description"></p></div><span id="lightbox-count"></span></div>
+      <div class="lightbox-controls"><button id="previous-photo" type="button" aria-label="上一张照片">←</button><span>慢慢看，都是小美好</span><button id="next-photo" type="button" aria-label="下一张照片">→</button></div>
+    </dialog>
+
+    <dialog class="letter-dialog" id="letter-dialog" aria-labelledby="letter-dialog-title">
+      <button class="dialog-close" type="button" data-close="letter-dialog" aria-label="收起信件">×</button>
+      <span class="section-kicker">A LETTER, JUST FOR YOU</span>
+      <h2 id="letter-dialog-title">生日快乐，我最喜欢的你。</h2>
+      <p class="letter-to" id="letter-to"></p>
+      <div class="letter-body" id="letter-body"></div>
+      <div class="letter-signature"><span id="letter-signature"></span><time id="letter-date"></time></div>
+      <button class="primary-button wish-button" id="make-wish" type="button">闭上眼睛，许个愿 <span aria-hidden="true">✧</span></button>
+      <p id="wish-message" class="wish-message" role="status" aria-live="polite"></p>
+      <div class="confetti-container" id="confetti" aria-hidden="true"></div>
+    </dialog>
+    <noscript><p class="noscript-note">请开启 JavaScript，翻开相册、查看回忆和生日信。</p></noscript>
+  </body>
+</html>

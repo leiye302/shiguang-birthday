@@ -1,0 +1,12 @@
+{
+  "name": "shiguang-birthday",
+  "version": "0.1.0",
+  "private": true,
+  "description": "拾光集，一份只属于你的生日礼物",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "check": "node --check app.js && node --check content.js && node --check scripts/serve.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

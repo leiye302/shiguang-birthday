@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#a3bdce"/><stop offset=".63" stop-color="#d8e1dc"/><stop offset="1" stop-color="#f3e3cc"/></linearGradient>
+    <linearGradient id="hill" x2="0" y2="1"><stop stop-color="#9aaf9d"/><stop offset="1" stop-color="#718c7b"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="grain"><feTurbulence baseFrequency=".68" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".055"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+    <g id="flower"><path d="M0 0Q-17 64-5 128" fill="none" stroke="#728f75" stroke-width="4"/><path d="M-3 70Q-52 33-27 86Q-8 97-3 70M-7 94Q38 61 28 107Q11 119-7 94" fill="#8a9d7e"/><g fill="#f3d4cf"><ellipse cy="-15" rx="12" ry="20"/><ellipse cy="-15" rx="12" ry="20" transform="rotate(72)"/><ellipse cy="-15" rx="12" ry="20" transform="rotate(144)"/><ellipse cy="-15" rx="12" ry="20" transform="rotate(216)"/><ellipse cy="-15" rx="12" ry="20" transform="rotate(288)"/></g><circle r="9" fill="#d6ae65"/></g>
+  </defs>
+  <g filter="url(#grain)">
+    <path fill="url(#sky)" d="M0 0h600v700H0z"/>
+    <circle cx="446" cy="136" r="57" fill="#fcf1d9" opacity=".8" filter="url(#soft)"/>
+    <g fill="#fcf8ec" opacity=".81" filter="url(#soft)"><ellipse cx="126" cy="192" rx="151" ry="36"/><ellipse cx="83" cy="175" rx="60" ry="46"/><ellipse cx="162" cy="165" rx="68" ry="61"/><ellipse cx="249" cy="196" rx="75" ry="27"/><ellipse cx="445" cy="294" rx="145" ry="30"/><ellipse cx="471" cy="270" rx="67" ry="46"/></g>
+    <path d="M0 465Q112 420 245 463T600 438V700H0" fill="#b7bdaa"/><path d="M0 530Q153 471 320 519T600 483V700H0" fill="url(#hill)"/>
+    <path d="M275 700Q421 561 392 523Q366 566 174 700" fill="#d8cdb0" opacity=".8"/>
+    <path d="M332 269q14-12 26 0m-26 0q-13-12-26 0m51-39q10-8 20 0m-20 0q-10-8-20 0" fill="none" stroke="#839eab" stroke-width="2.5" stroke-linecap="round"/>
+    <use href="#flower" transform="translate(60 553) rotate(-15) scale(1.2)"/><use href="#flower" transform="translate(143 586) rotate(11) scale(.9)"/><use href="#flower" transform="translate(504 598) rotate(-8) scale(1.1)"/><use href="#flower" transform="translate(564 536) rotate(19) scale(1.35)"/>
+    <g fill="#eee6c8"><circle cx="212" cy="558" r="3"/><circle cx="449" cy="523" r="3"/><circle cx="53" cy="487" r="3"/><circle cx="341" cy="551" r="2"/><circle cx="460" cy="601" r="3"/><circle cx="93" cy="623" r="2"/></g>
+  </g>
+</svg>
