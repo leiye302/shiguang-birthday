@@ -266,28 +266,36 @@
     $("#petals").append(petal);
   }
 
-  // 点击后才设置音源；音乐从平台播放，不将音频文件复制到仓库。
+  // 入场时尝试播放；受浏览器限制时，等待首次交互再播放。
   const audioTrack = $("#background-music");
   const musicButton = $("#music-toggle");
   const musicTitle = content.musicTitle || "背景音乐";
+  let waitingForGesture = false;
+  let pendingAutoplay = true;
+  let playbackRequest = 0;
   audioTrack.volume = .3;
   musicButton.title = [musicTitle, content.musicArtist].filter(Boolean).join(" · ");
 
   function musicState(state) {
-    const active = state !== "paused";
+    const active = state === "playing" || state === "loading";
     musicButton.setAttribute("aria-pressed", String(active));
     musicButton.setAttribute("aria-busy", String(state === "loading"));
     musicButton.setAttribute("aria-label", `${active ? "暂停" : "播放"}${musicTitle}`);
-    $(".music-label").textContent = state === "loading" ? "音乐加载中…" : musicTitle;
+    $(".music-label").textContent = state === "loading" ? "音乐加载中…" : state === "waiting" ? "轻触页面，听音乐" : musicTitle;
   }
 
   function pauseMusic() {
+    playbackRequest++;
+    waitingForGesture = false;
+    pendingAutoplay = false;
+    audioTrack.autoplay = false;
     audioTrack.pause();
     musicState("paused");
   }
 
   audioTrack.addEventListener("play", () => musicState("loading"));
   audioTrack.addEventListener("playing", () => {
+    waitingForGesture = false;
     if (document.hidden) pauseMusic();
     else musicState("playing");
   });
@@ -299,21 +307,54 @@
   });
   musicState("paused");
 
-  musicButton.addEventListener("click", async () => {
-    if (!audioTrack.paused) { pauseMusic(); return; }
-    if (!content.musicSrc) { toast("音乐还没准备好，再等等吧。"); return; }
+  async function startMusic(automatic = false) {
+    const request = ++playbackRequest;
+    waitingForGesture = false;
+    pendingAutoplay = false;
+    if (!content.musicSrc) {
+      if (!automatic) toast("音乐还没准备好，再等等吧。");
+      return;
+    }
     try {
       if (!audioTrack.getAttribute("src")) audioTrack.src = content.musicSrc;
       if (audioTrack.error) audioTrack.load();
       await audioTrack.play();
+      if (request !== playbackRequest) return;
       if (document.hidden) pauseMusic();
     } catch (error) {
       // 加载过程中再次点击暂停会中止 play()，无需提示播放失败。
-      if (error.name === "AbortError") return;
+      if (request !== playbackRequest || error.name === "AbortError") return;
       pauseMusic();
-      if (!audioTrack.error) toast("音乐暂时没能播放，再点一下试试吧。");
+      if (error.name === "NotAllowedError") {
+        waitingForGesture = true;
+        musicState("waiting");
+      } else if (!audioTrack.error) {
+        toast("音乐暂时没能播放，再点一下试试吧。");
+      }
+    }
+  }
+
+  musicButton.addEventListener("click", () => {
+    if (!audioTrack.paused) pauseMusic();
+    else void startMusic();
+  });
+
+  function playOnFirstGesture(event) {
+    // 音乐按钮由自身处理，避免一次轻触同时触发播放和暂停。
+    if (!waitingForGesture || document.hidden || musicButton.contains(event.target)) return;
+    if (event.type === "keydown" && (event.ctrlKey || event.metaKey || event.altKey || ["Shift", "Control", "Alt", "Meta", "Escape"].includes(event.key))) return;
+    void startMusic();
+  }
+  document.addEventListener("pointerup", playOnFirstGesture, { passive: true });
+  document.addEventListener("touchend", playOnFirstGesture, { passive: true });
+  document.addEventListener("keydown", playOnFirstGesture);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      if (!audioTrack.paused) pauseMusic();
+    } else if (pendingAutoplay) {
+      void startMusic(true);
     }
   });
-  document.addEventListener("visibilitychange", () => { if (document.hidden) pauseMusic(); });
   window.addEventListener("pagehide", pauseMusic);
+  if (!document.hidden) void startMusic(true);
 })();

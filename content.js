@@ -1,4 +1,4 @@
-// 称呼、日期和照片已按本人提供的信息填写；便签与生日信正文仍待继续打磨。
+// 称呼、日期、照片和便签已按本人提供的信息填写；生日信正文仍待继续打磨。
 // 照片放入 assets/photos/ 后，将 image 改为 "./assets/photos/文件名.jpg" 即可。
 window.SITE_CONTENT = {
   siteTitle: "拾光集",
@@ -9,7 +9,7 @@ window.SITE_CONTENT = {
   timeZone: "Asia/Shanghai",
   // 相伴天数按北京时间更新，起始日为第 1 天。
   anniversary: "2022-10-02",
-  // 用户点击后，直接播放网易云音乐公开提供的钢琴版音源。
+  // 进入页面时尝试播放；浏览器限制自动播放时，在首次轻触页面后播放。
   musicTitle: "悬溺 · 钢琴版",
   musicArtist: "LY-源-",
   musicSrc: "https://music.163.com/song/media/outer/url?id=1918400022.mp3",
@@ -39,10 +39,10 @@ window.SITE_CONTENT = {
     { image: "./assets/photos/sunny-day.jpg", alt: "晴天的海边，康老师站在沙滩上", title: "晴天，和镜头里的你", note: "晴天、海风，还有镜头里的你。", tag: "想把晴天都送给你" }
   ],
   notes: [
-    { id: "wishes", type: "checklist", color: "pink", title: "想和你一起做的事", items: ["看一场海边的日落", "拍一组属于我们的照片", "去一个没去过的地方"], footer: "慢慢来，一件一件实现", doodle: "♡" },
-    { id: "words", type: "text", color: "yellow", title: "想说给你听", text: "你不用每一天都闪闪发光。\n在我这里，普通的你、困困的你、开开心心的你，都很可爱。", footer: "今天也很喜欢你", doodle: "✿" },
-    { id: "next-time", type: "text", color: "peach", title: "下次见面的时候", text: "先给你一个大大的拥抱，\n再慢慢讲最近的小事。\n\n见面，就是最好的安排。", footer: "已经开始期待了", doodle: "✧" },
-    { id: "promise", type: "text", color: "cream", title: "一个小约定", text: "以后也要一起吃好多顿饭，\n走好多段路，拍好多张照片。\n把“我们”写成很长很长的故事。", footer: "拉钩，盖章", doodle: "∞" }
+    { id: "next-time", type: "text", color: "peach", title: "下次见面的时候", text: "先给你一个大大的拥抱，\n再慢慢的一同漫步街头。\n\n见面，就是最好的安排。", footer: "已经开始期待了", doodle: "✧" },
+    { id: "wishes", type: "checklist", color: "pink", title: "想和你一起做的事", items: ["看一场海边的日落", "来一次自驾游欣赏风景", "一起完成一份拼图"], footer: "慢慢来，一件一件实现", doodle: "♡" },
+    { id: "words", type: "text", color: "yellow", title: "想说给你听", text: "你是我心中的独一无二。\n在我这里，平时的你、困困的你、开开心心的你，都闪闪发光。", footer: "今天也很喜欢你", doodle: "✿" },
+    { id: "promise", type: "text", color: "cream", title: "一个小约定", text: "以后也要一起吃好多顿饭，\n走好多段路，拍好多张照片。\n把我们写成很长很长的故事。", footer: "拉钩，盖章", doodle: "∞" }
   ],
   letter: {
     title: "康老师，20 岁生日快乐。",
