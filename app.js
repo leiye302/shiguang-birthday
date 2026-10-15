@@ -202,7 +202,7 @@
   });
 
   $("#letter-dialog-title").textContent = content.letter.title;
-  $("#letter-to").textContent = `${content.recipient}：`;
+  $("#letter-to").textContent = content.letter.salutation || `${content.recipient}：`;
   $("#letter-signature").textContent = content.sender;
   content.letter.paragraphs.forEach(paragraph => $("#letter-body").append(element("p", "", paragraph)));
   $("#open-letter").addEventListener("click", () => $("#letter-dialog").showModal());
