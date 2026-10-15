@@ -64,18 +64,16 @@
     const today = todayNumber();
     const birthday = dateNumber(content.birthday);
     if (birthday !== null) {
-      const days = Math.round((birthday - today) / 86400000);
       $("#birthday-date").textContent = content.birthday.slice(5).replace("-", ".");
-      $("#birthday-label").textContent = days === 0 ? "今天，全世界的温柔都送给你" : days === 1 ? "明天，就是你的专属节日" : days > 1 ? `还有 ${days} 天，迎来你的专属节日` : "这一份生日快乐，永远为你珍藏";
-      // 出生日期与本次庆祝日期分开，避免把 2006 年当作倒计时目标。
+      $("#birthday-label").textContent = "一份只属于你的生日祝福";
+      // 生日礼物使用固定祝福；年龄按这次庆祝日期计算。
       const birth = dateNumber(content.birthDate);
       if (birth !== null && birth <= birthday) {
         const targetDate = new Date(birthday);
         const birthDate = new Date(birth);
         const beforeBirthday = content.birthday.slice(5) < content.birthDate.slice(5);
         const age = targetDate.getUTCFullYear() - birthDate.getUTCFullYear() - Number(beforeBirthday);
-        const occasion = `${content.recipient}的 ${age} 岁生日`;
-        $("#birthday-label").textContent = days === 0 ? `今天，是${occasion}` : days === 1 ? `明天，是${occasion}` : days > 1 ? `还有 ${days} 天，迎来${occasion}` : `把${occasion}，好好珍藏`;
+        $("#birthday-label").textContent = `写给${content.recipient}的 ${age} 岁`;
         document.title = `${content.siteTitle} · ${content.recipient}，${age} 岁生日快乐`;
       }
       $("#letter-date").textContent = content.birthday.replaceAll("-", ".");
@@ -94,7 +92,7 @@
   document.title = `${content.siteTitle} · 送给最特别的你`;
   $(".brand").setAttribute("aria-label", `${content.siteTitle}，回到首页`);
   updateDates();
-  // 留着页面跨过零点时，生日提示和相伴天数也会更新。
+  // 相伴天数按北京时间更新，生日祝福保持不变。
   setInterval(updateDates, 60_000);
 
   const timeline = $("#timeline");
@@ -268,79 +266,54 @@
     $("#petals").append(petal);
   }
 
-  // 用户点击后才播放；内置旋律由 Web Audio 合成，不请求外部音频。
-  let audioContext;
-  let audioTrack;
-  let masterGain;
-  let musicTimer;
-  let noteIndex = 0;
-  let musicPlaying = false;
-  let musicBusy = false;
-  const melody = [261.63, 329.63, 392, 523.25, 440, 392, 329.63, 293.66, 261.63, 329.63, 392, 440, 392, 329.63, 293.66, 261.63];
+  // 点击后才设置音源；音乐从平台播放，不将音频文件复制到仓库。
+  const audioTrack = $("#background-music");
+  const musicButton = $("#music-toggle");
+  const musicTitle = content.musicTitle || "背景音乐";
+  audioTrack.volume = .3;
+  musicButton.title = [musicTitle, content.musicArtist].filter(Boolean).join(" · ");
 
-  function musicState(playing) {
-    musicPlaying = playing;
-    $("#music-toggle").setAttribute("aria-pressed", String(playing));
-    $("#music-toggle").setAttribute("aria-label", playing ? "暂停轻柔音乐" : "播放轻柔音乐");
-    $(".music-label").textContent = playing ? "温柔播放中" : "听一点温柔";
-  }
-
-  function playNote() {
-    const now = audioContext.currentTime;
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = "sine";
-    oscillator.frequency.value = melody[noteIndex++ % melody.length];
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(.16, now + .03);
-    gain.gain.exponentialRampToValueAtTime(.001, now + 1.9);
-    oscillator.connect(gain).connect(masterGain);
-    oscillator.start(now);
-    oscillator.stop(now + 2);
-    oscillator.onended = () => { oscillator.disconnect(); gain.disconnect(); };
+  function musicState(state) {
+    const active = state !== "paused";
+    musicButton.setAttribute("aria-pressed", String(active));
+    musicButton.setAttribute("aria-busy", String(state === "loading"));
+    musicButton.setAttribute("aria-label", `${active ? "暂停" : "播放"}${musicTitle}`);
+    $(".music-label").textContent = state === "loading" ? "音乐加载中…" : musicTitle;
   }
 
   function pauseMusic() {
-    clearInterval(musicTimer);
-    if (masterGain && audioContext) masterGain.gain.setValueAtTime(0, audioContext.currentTime);
-    if (audioTrack) audioTrack.pause();
-    musicState(false);
+    audioTrack.pause();
+    musicState("paused");
   }
 
-  $("#music-toggle").addEventListener("click", async () => {
-    if (musicBusy) return;
-    if (musicPlaying) { pauseMusic(); return; }
-    musicBusy = true;
-    try {
-      if (content.musicSrc) {
-        if (!audioTrack) {
-          audioTrack = new Audio(content.musicSrc);
-          audioTrack.loop = true;
-          audioTrack.volume = .3;
-          audioTrack.addEventListener("error", () => { pauseMusic(); toast("音乐暂时没能播放，再试一次吧。"); });
-        }
-        await audioTrack.play();
-      } else {
-        if (!audioContext) {
-          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-          if (!AudioContextClass) throw new Error("Audio is unavailable");
-          audioContext = new AudioContextClass();
-          masterGain = audioContext.createGain();
-          masterGain.gain.value = .22;
-          masterGain.connect(audioContext.destination);
-        }
-        await audioContext.resume();
-        masterGain.gain.setValueAtTime(.22, audioContext.currentTime);
-        playNote();
-        musicTimer = setInterval(playNote, 850);
-      }
-      musicState(true);
-      if (document.hidden) pauseMusic();
-    } catch {
-      pauseMusic();
-      toast("音乐暂时没能播放，再试一次吧。");
-    } finally { musicBusy = false; }
+  audioTrack.addEventListener("play", () => musicState("loading"));
+  audioTrack.addEventListener("playing", () => {
+    if (document.hidden) pauseMusic();
+    else musicState("playing");
   });
-  document.addEventListener("visibilitychange", () => { if (document.hidden && musicPlaying) pauseMusic(); });
+  audioTrack.addEventListener("waiting", () => { if (!audioTrack.paused) musicState("loading"); });
+  audioTrack.addEventListener("pause", () => musicState("paused"));
+  audioTrack.addEventListener("error", () => {
+    pauseMusic();
+    toast("音乐暂时没能播放，再点一下试试吧。");
+  });
+  musicState("paused");
+
+  musicButton.addEventListener("click", async () => {
+    if (!audioTrack.paused) { pauseMusic(); return; }
+    if (!content.musicSrc) { toast("音乐还没准备好，再等等吧。"); return; }
+    try {
+      if (!audioTrack.getAttribute("src")) audioTrack.src = content.musicSrc;
+      if (audioTrack.error) audioTrack.load();
+      await audioTrack.play();
+      if (document.hidden) pauseMusic();
+    } catch (error) {
+      // 加载过程中再次点击暂停会中止 play()，无需提示播放失败。
+      if (error.name === "AbortError") return;
+      pauseMusic();
+      if (!audioTrack.error) toast("音乐暂时没能播放，再点一下试试吧。");
+    }
+  });
+  document.addEventListener("visibilitychange", () => { if (document.hidden) pauseMusic(); });
   window.addEventListener("pagehide", pauseMusic);
 })();

@@ -9,8 +9,10 @@ window.SITE_CONTENT = {
   timeZone: "Asia/Shanghai",
   // 相伴天数按北京时间更新，起始日为第 1 天。
   anniversary: "2022-10-02",
-  // 可替换为自己有权使用的音乐路径；留空时播放浏览器合成的轻柔音符。
-  musicSrc: null,
+  // 用户点击后，直接播放网易云音乐公开提供的钢琴版音源。
+  musicTitle: "悬溺 · 钢琴版",
+  musicArtist: "LY-源-",
+  musicSrc: "https://music.163.com/song/media/outer/url?id=1918400022.mp3",
   memories: [
     {
       chapter: "01", date: "故事的开头 · 初次约会", icon: "✿", title: "第一次约会，值得一直记得",
