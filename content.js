@@ -20,12 +20,22 @@ window.SITE_CONTENT = {
       image: "./assets/photos/first-date.jpg", imageAlt: "初次约会时拍下的两人合照", caption: "这张合照，是我们故事里的一页。", tag: "初次约会"
     },
     {
-      chapter: "02", date: "相伴 1000 天", icon: "♡", title: "第 1000 天，还是想牵你的手",
+      chapter: "02", date: "2024.01.01 · 一起跨年", icon: "✧", title: "一起跨年，一起走进 2024",
+      description: "2024 年 1 月 1 日，我们一起跨年。新的一年，也想这样牵着你的手，慢慢往前走。",
+      image: "./assets/photos/new-year-2024.jpg", imageAlt: "2024 年 1 月 1 日一起跨年时，两个人握在一起的手", caption: "新年的开头，有你在身边。", tag: "一起跨年"
+    },
+    {
+      chapter: "03", date: "相伴 1000 天", icon: "♡", title: "第 1000 天，还是想牵你的手",
       description: "从 2022 年 10 月 2 日开始，我们一起走到了 1000 天。以后还有好多好多天，想继续这样牵着你走。",
       image: "./assets/photos/day-1000.jpg", imageAlt: "在一起 1000 天时牵手走路的照片", caption: "第 1000 天，手还是要好好牵着。", tag: "我们的 1000 天"
     },
     {
-      chapter: "03", date: "2026.10.16 · 20 岁生日", icon: "✧", title: "康老师，20 岁生日快乐",
+      chapter: "04", date: "2026 年五一 · 共青森林公园", icon: "✿", title: "把春天和你一起收藏",
+      description: "2026 年五一，一起去了共青森林公园。把牵着手的这一刻，和满地的花一起收藏。",
+      image: "./assets/photos/gongqing-forest-2026.jpg", imageAlt: "2026 年五一在共青森林公园，两人牵着手，掌心和地上都有白色花朵", caption: "掌心有花，身边有你。", tag: "共青森林公园"
+    },
+    {
+      chapter: "05", date: "2026.10.16 · 20 岁生日", icon: "✧", title: "康老师，20 岁生日快乐",
       description: "愿你的 20 岁，眼里有光，心里有爱。可以勇敢，也可以偶尔偷懒；可以做大人的事，也永远保留小朋友的快乐。",
       image: null, imageAlt: "", caption: "", tag: "新的一岁，也想陪着你"
     }
