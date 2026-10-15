@@ -67,6 +67,17 @@
       const days = Math.round((birthday - today) / 86400000);
       $("#birthday-date").textContent = content.birthday.slice(5).replace("-", ".");
       $("#birthday-label").textContent = days === 0 ? "今天，全世界的温柔都送给你" : days === 1 ? "明天，就是你的专属节日" : days > 1 ? `还有 ${days} 天，迎来你的专属节日` : "这一份生日快乐，永远为你珍藏";
+      // 出生日期与本次庆祝日期分开，避免把 2006 年当作倒计时目标。
+      const birth = dateNumber(content.birthDate);
+      if (birth !== null && birth <= birthday) {
+        const targetDate = new Date(birthday);
+        const birthDate = new Date(birth);
+        const beforeBirthday = content.birthday.slice(5) < content.birthDate.slice(5);
+        const age = targetDate.getUTCFullYear() - birthDate.getUTCFullYear() - Number(beforeBirthday);
+        const occasion = `${content.recipient}的 ${age} 岁生日`;
+        $("#birthday-label").textContent = days === 0 ? `今天，是${occasion}` : days === 1 ? `明天，是${occasion}` : days > 1 ? `还有 ${days} 天，迎来${occasion}` : `把${occasion}，好好珍藏`;
+        document.title = `${content.siteTitle} · ${content.recipient}，${age} 岁生日快乐`;
+      }
       $("#letter-date").textContent = content.birthday.replaceAll("-", ".");
       $("#letter-date").dateTime = content.birthday;
     }

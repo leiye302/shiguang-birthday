@@ -75,7 +75,8 @@ h1 { font: 500 87px/1.35 var(--serif); color: var(--wine); letter-spacing: 10px;
 .hero-note { position: absolute; top: 4px; left: 99px; transform: rotate(-8deg); font: italic 20px/1.4 Georgia,serif; color: #b58980; }
 .hero-note span { display: block; padding-left: 88px; font-size: 28px; }
 .floating-photo { position: absolute; z-index: 1; width: 198px; padding: 10px 10px 15px; background: #fffdf7; box-shadow: 0 8px 22px #89675b1b; }
-.floating-photo img { aspect-ratio: 4/5; width: 100%; height: auto; filter: saturate(.85); }
+.floating-photo img { aspect-ratio: 4/5; width: 100%; height: auto; }
+.photo-left img { object-position: center bottom; }
 .floating-photo figcaption { font: 13px var(--serif); text-align: center; margin-top: 13px; color: #967d6d; white-space: nowrap; }
 .photo-left { left: 25px; top: 174px; transform: rotate(-10deg); }
 .photo-right { right: 23px; top: 103px; transform: rotate(9deg); width: 185px; }
@@ -117,7 +118,7 @@ h1 { font: 500 87px/1.35 var(--serif); color: var(--wine); letter-spacing: 10px;
 .memory-card h3 > span { color: #cf8ba1; margin-right: 8px; font-size: 20px; }
 .memory-description { font-size: 12px; color: #9a8479; line-height: 2; }
 .memory-card figure { margin: 17px 0 0; }
-.memory-card figure img { width: 100%; aspect-ratio: 1.7; border-radius: 5px; }
+.memory-card figure img { width: 100%; aspect-ratio: 1.35; border-radius: 5px; object-fit: contain; background: #f7eee4; }
 .memory-card figcaption { font: 13px var(--serif); color: #a18e7c; text-align: center; margin-top: 11px; }
 .memory-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 17px; padding-top: 13px; border-top: 1px dashed #e9dbce; }
 .memory-tag { font-size: 9px; color: #b88e8c; background: #f8efea; padding: 2px 9px; border-radius: 20px; }
@@ -133,12 +134,12 @@ h1 { font: 500 87px/1.35 var(--serif); color: var(--wine); letter-spacing: 10px;
 .photo-grid { max-width: 980px; margin: auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 37px 33px; padding: 8px 7px; }
 .polaroid { display: block; width: 100%; padding: 11px 11px 17px; border: 1px solid #fff; border-radius: 3px; background: #fffcf7; text-align: center; box-shadow: 0 9px 18px #93685613; position: relative; transform: rotate(var(--rotation,-2deg)); transition: transform .25s,box-shadow .25s; }
 .polaroid:hover { transform: rotate(0) translateY(-7px); box-shadow: 0 15px 30px #93685622; z-index: 4; }
-.polaroid img { width: 100%; aspect-ratio: 1.1; border-radius: 2px; }
+.polaroid img { width: 100%; aspect-ratio: 1.1; border-radius: 2px; object-fit: contain; background: #f7eee4; }
 .polaroid .tape { width: 61px; left: calc(50% - 30px); background-color: #edc7b79c; }
 .polaroid:nth-child(2n) .tape { background-color: #e6c0bc8a; }
 .polaroid-title { display: block; font: 18px var(--serif); margin-top: 14px; letter-spacing: 1px; }
 .polaroid-tag { display: block; font-size: 8px; color: #b39b8b; letter-spacing: 1px; margin-top: 6px; }
-.placeholder-note { text-align: center; margin-top: 39px; color: #b5978c; font-size: 10px; letter-spacing: 1px; }
+.album-footnote { text-align: center; margin-top: 39px; color: #b5978c; font-size: 10px; letter-spacing: 1px; }
 .notes-section { padding: 90px 24px 85px; background: radial-gradient(ellipse at 92% 80%,#f9dee177,transparent 60%),#fff2e8; }
 .cork-board { position: relative; max-width: 1000px; padding: 38px 35px 32px; margin: auto; background-color: #dabe9e; background-image: radial-gradient(#ad8e6e25 .8px,transparent .8px),radial-gradient(#fff0d557 .8px,transparent .8px),linear-gradient(115deg,#d4b69344,#e3c8a466); background-size: 7px 9px,9px 8px,100% 100%; background-position: 0 0,4px 3px,0 0; border: 6px solid #dfc8ab; border-radius: 17px; box-shadow: inset 0 2px 10px #94785e1c,0 10px 35px #ab8b7312; }
 .cork-board::after { content: ""; position: absolute; inset: 8px; border: 1px dashed #fff6e269; pointer-events: none; border-radius: 8px; }
@@ -239,7 +240,7 @@ dialog[open] { animation: dialog-in .25s ease-out; }
   .birthday-ticket { right: 11px; bottom: 5px; width: 99px; }.birthday-ticket strong { font-size: 28px; }.hero-doodle { display: none; }.star-one { top: -45px; right: 7px; font-size: 24px; }.star-two { bottom: 19px; left: 46%; font-size: 25px; }.scroll-hint { margin-top: 24px; font-size: 9px; }
   .section-heading { margin-bottom: 35px; }.section-kicker { font-size: 8px; letter-spacing: 2.4px; margin-bottom: 10px; }.section-heading h2 { font-size: 29px; letter-spacing: 1px; }.section-heading h2 > span { font-size: 20px; margin-left: 6px; }.section-heading > p { font-size: 10px; letter-spacing: .1px; line-height: 1.9; margin-top: 10px; }
   .story-section { padding: 64px 21px 50px; }.timeline { display: flex; flex-direction: column; gap: 22px; padding: 0 0 0 26px; }.timeline::before { left: 4px; }.memory-card { margin: 0; width: 100%; padding: 21px; }.memory-card:nth-child(even),.memory-card:nth-child(3) { margin-top: 0; margin-bottom: 0; }.memory-card::before,.memory-card:nth-child(even)::before { left: -27px; right: auto; width: 8px; height: 8px; }.memory-card::after,.memory-card:nth-child(even)::after { left: -15px; right: auto; width: 10px; }.memory-card h3 { font-size: 23px; }.memory-description { font-size: 12px; }.memory-date { font-size: 9px; }.memory-card figure img { aspect-ratio: 1.65; }.memory-card figcaption { font-size: 12px; }.timeline-end { margin-top: 25px; }.timeline-end p { font-size: 16px; }
-  .album-section { padding: 62px 22px 55px; }.album-section .section-heading { margin-bottom: 27px; }.album-toolbar { font-size: 9px; margin-bottom: 24px; }.album-toolbar > span { font-size: 11px; }.photo-grid { grid-template-columns: repeat(2,1fr); gap: 27px 18px; padding: 5px 2px; }.polaroid { padding: 7px 7px 13px; }.polaroid img { aspect-ratio: .85; }.polaroid .tape { width: 49px; height: 19px; left: calc(50% - 24px); top: -8px; }.polaroid-title { font-size: 15px; letter-spacing: 0; margin-top: 11px; }.polaroid-tag { font-size: 7px; letter-spacing: .2px; }.placeholder-note { font-size: 9px; letter-spacing: .5px; margin-top: 28px; }
+  .album-section { padding: 62px 22px 55px; }.album-section .section-heading { margin-bottom: 27px; }.album-toolbar { font-size: 9px; margin-bottom: 24px; }.photo-grid { grid-template-columns: repeat(2,1fr); gap: 27px 18px; padding: 5px 2px; }.polaroid { padding: 7px 7px 13px; }.polaroid img { aspect-ratio: .85; }.polaroid .tape { width: 49px; height: 19px; left: calc(50% - 24px); top: -8px; }.polaroid-title { font-size: 15px; letter-spacing: 0; margin-top: 11px; }.polaroid-tag { font-size: 7px; letter-spacing: .2px; }.album-footnote { font-size: 9px; letter-spacing: .5px; margin-top: 28px; }
   .notes-section { padding: 61px 14px 52px; }.notes-section .section-heading { padding: 0 8px; }.notes-section h2 { font-size: 27px; }.cork-board { padding: 28px 19px 25px; border-width: 5px; }.notes-grid { grid-template-columns: 1fr; gap: 27px; }.sticky-note { padding: 23px 23px 17px; }.sticky-note h3 { font-size: 23px; }.sticky-note > p,.sticky-note label { font-size: 17px; }.sticky-note input { width: 18px; height: 18px; }.sticky-note li { margin: 11px 0; }.note-bottom { margin-top: 17px; }.note-bottom small { font-size: 10px; }.notes-tip { font-size: 9px; letter-spacing: .5px; }
   .letter-section { padding: 63px 23px 57px; }.letter-section h2 { font-size: 25px; }.letter-section .section-heading { margin-bottom: 62px; }.envelope { width: min(100%,320px); height: 214px; }.letter-peek { left: 14px; right: 14px; padding: 23px 21px; font-size: 21px; }.wax-seal { top: 82px; width: 46px; height: 46px; left: calc(50% - 23px); font-size: 29px; line-height: 46px; }.envelope-caption { bottom: 24px; font-size: 10px; letter-spacing: 1px; }.letter-footnote { font-size: 16px; letter-spacing: 1px; margin-top: 34px; }
   .music-button { right: 15px; bottom: max(15px,env(safe-area-inset-bottom)); padding: 4px; }.music-label { display: none; }.music-disc { width: 32px; height: 32px; }.toast { font-size: 11px; bottom: 70px; width: max-content; }
@@ -247,7 +248,26 @@ dialog[open] { animation: dialog-in .25s ease-out; }
   .photo-dialog { padding: 12px; }.lightbox-caption { padding: 15px 3px 9px; }.lightbox-caption h3 { font-size: 23px; }.lightbox-caption p { font-size: 10px; }.lightbox-image img { height: 48dvh; }.lightbox-controls { margin-left: 2px; margin-right: 2px; }.letter-dialog { padding: 46px 24px 23px; }.letter-dialog h2 { font-size: 25px; }.letter-body p { font-size: 17px; }.letter-to { font-size: 19px; }.letter-signature { font-size: 17px; }
 }
 @media (max-width: 360px) { .main-nav a { padding: 5px 8px; }.main-nav a span { margin-right: 1px; }.hero { padding-left: 14px; padding-right: 14px; } h1 { font-size: 67px; }.birthday-greeting { font-size: 23px; }.section-heading h2 { font-size: 26px; }.notes-section h2,.letter-section h2 { font-size: 23px; }.polaroid-title { font-size: 14px; }.album-toolbar > span { font-size: 10px; } }
-@media (max-width: 600px) { .memory-card h3 { font-size: 20px; text-wrap: pretty; }.memory-description { color: #8b746a; } }
+@media (max-width: 600px) {
+  .memory-card h3 { font-size: 20px; text-wrap: pretty; }.memory-description { color: #8b746a; }
+  .hero-scene { min-height: 665px; }
+  .photo-left { bottom: -6px; left: 1px; }
+  .photo-right { display: block; top: auto; bottom: -6px; right: 1px; width: 101px; padding: 6px 6px 10px; transform: rotate(10deg); }
+  .photo-right img { aspect-ratio: 1.3; object-position: center 75%; }
+  .photo-right figcaption { font-size: 7px; margin-top: 7px; }
+  .photo-right .tape { width: 40px; left: calc(50% - 20px); height: 15px; top: -6px; }
+  .birthday-ticket { right: auto; left: calc(50% - 44px); bottom: 10px; width: 88px; padding: 11px 3px; transform: rotate(-4deg); }
+  .birthday-ticket strong { font-size: 25px; letter-spacing: 1px; }
+  .birthday-ticket > span { font-size: 7px; letter-spacing: 1px; }
+  .birthday-ticket small { font-size: 5px; letter-spacing: .8px; }
+  .star-two { display: none; }
+}
+@media (max-width: 360px) {
+  .photo-left,.photo-right { width: 88px; }
+  .photo-left figcaption,.photo-right figcaption { font-size: 6px; }
+  .birthday-ticket { width: 76px; left: calc(50% - 38px); }
+  .birthday-ticket strong { font-size: 23px; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }

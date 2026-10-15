@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fff5ee" />
-    <meta name="description" content="把喜欢写进每一天，把我们的故事慢慢收藏。送给最特别的你，生日快乐。" />
-    <title>拾光集 · 送给最特别的你</title>
+    <meta name="description" content="从 2022 年 10 月 2 日开始，把我们的故事慢慢收藏。康老师，20 岁生日快乐。" />
+    <title>拾光集 · 康老师，20 岁生日快乐</title>
     <link rel="icon" type="image/svg+xml" href="./assets/flower.svg" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./content.js" defer></script>
@@ -38,9 +38,9 @@
           <div class="hero-note" aria-hidden="true">for my favorite person <span>♡</span></div>
           <div class="little-star star-one" aria-hidden="true">✧</div>
           <div class="little-star star-two" aria-hidden="true">✧</div>
-          <figure class="floating-photo photo-left" aria-label="蓝天插画占位">
+          <figure class="floating-photo photo-left" aria-label="晴天的海边，镜头里的康老师">
             <span class="tape" aria-hidden="true"></span>
-            <img src="./assets/sky.svg" alt="柔软的云、蓝天和盛开的花" width="600" height="700" />
+            <img src="./assets/photos/sunny-day.jpg" alt="晴天的海边，康老师站在沙滩上" width="810" height="1080" />
             <figcaption>想把所有晴天，都送给你。</figcaption>
             <span class="photo-heart" aria-hidden="true">♡</span>
           </figure>
@@ -53,17 +53,17 @@
             <h1 id="hero-title" data-site-title>拾光集</h1>
             <p class="hero-subtitle">把喜欢，写进每一天<span class="blinking-heart" aria-hidden="true">♥</span></p>
             <div class="tiny-divider" aria-hidden="true"><span></span> ✧ <span></span></div>
-            <p class="birthday-label" id="birthday-label">在这个特别的日子</p>
-            <p class="birthday-greeting" id="birthday-greeting">生日快乐，<span data-recipient>亲爱的你</span></p>
+            <p class="birthday-label" id="birthday-label">属于康老师的 20 岁生日</p>
+            <p class="birthday-greeting" id="birthday-greeting">生日快乐，<span data-recipient>康老师</span></p>
             <p class="hero-description">那些平凡又闪亮的瞬间，<br class="mobile-break" />因为有你，都值得被收藏。</p>
             <a class="primary-button" href="#story">翻开我们的故事 <span aria-hidden="true">↗</span></a>
             <p class="anniversary" id="anniversary">我们的故事，还很长很长 <span aria-hidden="true">♡</span></p>
           </div>
 
-          <figure class="floating-photo photo-right" aria-label="落日海边插画占位">
+          <figure class="floating-photo photo-right" aria-label="收藏一场海上日出">
             <span class="tape" aria-hidden="true"></span>
-            <img src="./assets/sea.svg" alt="粉色落日下安静的海岸" width="600" height="700" />
-            <figcaption>下一场日落，也要一起看。</figcaption>
+            <img src="./assets/photos/sunrise.jpg" alt="橙红色的太阳从海面升起，旁边是伸向海中的栈桥" width="1280" height="1280" />
+            <figcaption>下一场日出，也要一起看。</figcaption>
           </figure>
           <div class="birthday-ticket" aria-label="生日日期">
             <span>你的专属节日</span><strong id="birthday-date">10.16</strong><small>HAPPY BIRTHDAY</small>
@@ -90,11 +90,11 @@
           <p>把心动定格，把普通的一天变成纪念。</p>
         </div>
         <div class="album-toolbar">
-          <p><span class="tiny-dot" aria-hidden="true"></span> <span id="photo-count">6</span> 个等待被填满的瞬间</p>
+          <p><span class="tiny-dot" aria-hidden="true"></span> <span id="photo-count">6</span> 个被好好收藏的瞬间</p>
           <span>轻轻点开，慢慢看 <span aria-hidden="true">↙</span></span>
         </div>
         <div class="photo-grid" id="photo-grid"></div>
-        <p class="placeholder-note">先用小插画占个位置，等我们的照片住进来。</p>
+        <p class="album-footnote">从初次约会到一起远行，每一张里都有我们的故事。</p>
       </section>
 
       <section class="notes-section section-anchor" id="notes" aria-labelledby="notes-title">
@@ -117,7 +117,7 @@
           <p>在今天，也在以后每一个有你的日子。</p>
         </div>
         <button class="envelope" id="open-letter" type="button" aria-haspopup="dialog" aria-controls="letter-dialog">
-          <span class="letter-peek">To: <span data-recipient>亲爱的你</span><span class="peek-flower" aria-hidden="true">✿</span></span>
+          <span class="letter-peek">To: <span data-recipient>康老师</span><span class="peek-flower" aria-hidden="true">✿</span></span>
           <span class="envelope-back" aria-hidden="true"></span>
           <span class="envelope-front" aria-hidden="true"></span>
           <span class="wax-seal" aria-hidden="true">♡</span>
@@ -142,7 +142,7 @@
     <dialog class="letter-dialog" id="letter-dialog" aria-labelledby="letter-dialog-title">
       <button class="dialog-close" type="button" data-close="letter-dialog" aria-label="收起信件">×</button>
       <span class="section-kicker">A LETTER, JUST FOR YOU</span>
-      <h2 id="letter-dialog-title">生日快乐，我最喜欢的你。</h2>
+      <h2 id="letter-dialog-title">康老师，20 岁生日快乐。</h2>
       <p class="letter-to" id="letter-to"></p>
       <div class="letter-body" id="letter-body"></div>
       <div class="letter-signature"><span id="letter-signature"></span><time id="letter-date"></time></div>
